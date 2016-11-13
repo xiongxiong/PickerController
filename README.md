@@ -5,7 +5,7 @@
 
 Easy to use UITableViewCell implementing swiping to trigger actions (known from the Mailbox App)
 
-![PickerController](Framework/ScreenShot/PickerController.gif "PickerController")
+![PickerController](/ScreenShot/PickerController.gif "PickerController")
 
 ## Contents
 
