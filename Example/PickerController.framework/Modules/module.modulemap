@@ -1,0 +1,10 @@
+framework module PickerController {
+  umbrella header "PickerController.h"
+
+  export *
+  module * { export * }
+}
+
+module PickerController.Swift {
+    header "PickerController-Swift.h"
+}
