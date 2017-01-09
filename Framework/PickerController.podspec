@@ -1,5 +1,5 @@
 #
-# Be sure to run `pod lib lint ActionCell.podspec' to ensure this is a
+# Be sure to run `pod lib lint PickerController.podspec' to ensure this is a
 # valid spec before submitting.
 #
 # Any lines starting with a # are optional, but their use is encouraged
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-PickerController, has many functions. I love it.
+PickerController, can make correlational pick. love it.
                        DESC
 
   s.homepage         = 'https://github.com/xiongxiong/PickerController'

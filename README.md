@@ -3,7 +3,7 @@
 [![CI Status](http://img.shields.io/travis/wonderbear/PickerController.svg?style=flat)](https://travis-ci.org/wonderbear/PickerController) [![Version](https://img.shields.io/cocoapods/v/PickerController.svg?style=flat)](http://cocoapods.org/pods/PickerController) [![Platform](https://img.shields.io/cocoapods/p/PickerController.svg?style=flat)](http://cocoapods.org/pods/PickerController)
 [![Swift 3.0](https://img.shields.io/badge/Swift-3.0-orange.svg?style=flat)](https://developer.apple.com/swift/) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![License](https://img.shields.io/cocoapods/l/PickerController.svg?style=flat)](http://cocoapods.org/pods/PickerController)
 
-Easy to use UITableViewCell implementing swiping to trigger actions (known from the Mailbox App)
+PickerController, can make correlational pick. I love it.
 
 ![PickerController](/ScreenShot/PickerController.gif "PickerController")
 
