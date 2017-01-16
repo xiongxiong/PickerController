@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'PickerController'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'PickerController, has many functions.'
 
 # This description is used to generate tags and improve search results.
@@ -30,7 +30,8 @@ PickerController, can make correlational pick. love it.
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'Framework/PickerController/**/*'
+  s.source_files = 'Framework/PickerController/**/*.{h,swift}'
+  s.resources = 'Framework/PickerController/**/*.{json}'
 
   # s.resource_bundles = {
   #   'PickerController' => ['PickerController/Assets/*.png']
