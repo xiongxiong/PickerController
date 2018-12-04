@@ -1,0 +1,6 @@
+use_frameworks!
+
+target 'PickerController_Example' do
+  pod 'PickerController', :path => '../'
+
+end
