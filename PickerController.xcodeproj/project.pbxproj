@@ -39,6 +39,7 @@
 		D8180B5E21B7981C009D93E7 /* chinese_regionalism.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = chinese_regionalism.json; sourceTree = "<group>"; };
 		D8180B6C21B799C8009D93E7 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		D8180B6F21B79B82009D93E7 /* PickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerController.h; sourceTree = "<group>"; };
+		D8180B7721B79F3F009D93E7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +84,7 @@
 			children = (
 				D8180B5021B7981C009D93E7 /* Classes */,
 				D8180B5D21B7981C009D93E7 /* Assets */,
+				D8180B7921B7A1D4009D93E7 /* Supporting Files */,
 			);
 			path = PickerController;
 			sourceTree = "<group>";
@@ -112,6 +114,15 @@
 				D8180B5E21B7981C009D93E7 /* chinese_regionalism.json */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		D8180B7921B7A1D4009D93E7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D8180B7721B79F3F009D93E7 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -363,6 +374,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
+				INFOPLIST_FILE = PickerController/Classes/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.snowflyer.PickerController;
@@ -385,6 +397,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
+				INFOPLIST_FILE = PickerController/Classes/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.snowflyer.PickerController;
