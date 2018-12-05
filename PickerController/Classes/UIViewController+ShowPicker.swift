@@ -64,10 +64,10 @@ extension UIViewController {
         }
     }
     
-    public func showDatePicker(title: String, initialDate: Date, onDone: ClosureDateDone? = nil, onCancel: ClosureCancel? = nil) {
+  public func showDatePicker(title: String, onConfigure: ((UIDatePicker) -> Void)? = nil, onDone: ClosureDateDone? = nil, onCancel: ClosureCancel? = nil) {
         let pickerController = PickerController_Date(title: title, onDone: onDone, onCancel: onCancel)
         showPicker(pickerController: pickerController) {
-            pickerController.setDate(date: initialDate)
+            pickerController._pickerControl.configureDatePicker(onConfigure)
         }
     }
 }

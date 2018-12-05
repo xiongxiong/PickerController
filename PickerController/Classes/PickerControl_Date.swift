@@ -20,8 +20,8 @@ public class PickerControl_Date: PickerControl_Base {
     
     var datePicker = UIDatePicker()
 
-    func setDate(date: Date) {
-        datePicker.setDate(date, animated: false)
+    func configureDatePicker(_ configClosure: ((UIDatePicker) -> Void)?) {
+        configClosure?(datePicker)
     }
     
     override func didDone() {

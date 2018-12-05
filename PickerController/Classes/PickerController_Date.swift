@@ -26,8 +26,8 @@ public class PickerController_Date: PickerController_Base {
         fatalError("init(coder:) has not been implemented")
     }
 
-    public func setDate(date: Date) {
-        _pickerControl.setDate(date: date)
+    public func configureDatePicker(_ configClosure: ((UIDatePicker) -> Void)?) {
+        _pickerControl.configureDatePicker(configClosure)
     }
     
     public func setDoneAction(_ onDone: ClosureDateDone?) {

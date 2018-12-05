@@ -64,31 +64,34 @@ class ViewController: UIViewController {
         showGroupPicker(title: "Hello", groupData: data, selectedItems: ["1984", "6月"], onDone: { [unowned self] (indices, items) in
             self.labelIndices.text = "indices -- \(indices)"
             self.labelItems.text = "items -- \(items)"
-            }, onCancel: {
-               self.labelIndices.text = "selected nothing"
-                self.labelItems.text = "selected nothing"
+        }, onCancel: {
+            self.labelIndices.text = "selected nothing"
+            self.labelItems.text = "selected nothing"
         })
     }
     
   @objc func onClicked_button2() {
         if let path = Bundle.main.path(forResource: "chinese_regionalism", ofType: "json") {
-          showCorrelationPicker(title: "城市", correlationalJsonFile: path, selectedItems: ["江苏", "无锡"], onDone: { [unowned self] (indices, items) in
-              self.labelIndices.text = "indices -- \(indices)"
-              self.labelItems.text = "items -- \(items)"
-              }, onCancel: {
-                  self.labelIndices.text = "selected nothing"
-                  self.labelItems.text = "selected nothing"
-          })
+            showCorrelationPicker(title: "城市", correlationalJsonFile: path, selectedItems: ["江苏", "无锡"], onDone: { [unowned self] (indices, items) in
+                self.labelIndices.text = "indices -- \(indices)"
+                self.labelItems.text = "items -- \(items)"
+            }, onCancel: {
+                self.labelIndices.text = "selected nothing"
+                self.labelItems.text = "selected nothing"
+            })
         }
     }
     
   @objc func onClicked_button3() {
-        showDatePicker(title: "时间", initialDate: Date(), onDone: { [unowned self] (date) in
+        showDatePicker(title: "时间", onConfigure: {
+            $0.setDate(Date(), animated: false)
+            $0.datePickerMode = .date
+        }, onDone: { [unowned self] (date) in
             self.labelIndices.text = ""
             self.labelItems.text = "date -- \(date)"
-            }, onCancel: {
-                self.labelIndices.text = ""
-                self.labelItems.text = "selected nothing"
+        }, onCancel: {
+            self.labelIndices.text = ""
+            self.labelItems.text = "selected nothing"
         })
     }
 }
