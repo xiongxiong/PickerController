@@ -71,13 +71,15 @@ class ViewController: UIViewController {
     }
     
   @objc func onClicked_button2() {
-        showPicker_ChineseRegionalism(title: "城市", selectedItems: ["江苏", "无锡"], onDone: { [unowned self] (indices, items) in
-            self.labelIndices.text = "indices -- \(indices)"
-            self.labelItems.text = "items -- \(items)"
-            }, onCancel: {
-                self.labelIndices.text = "selected nothing"
-                self.labelItems.text = "selected nothing"
-        })
+        if let path = Bundle.main.path(forResource: "chinese_regionalism", ofType: "json") {
+          showCorrelationPicker(title: "城市", correlationalJsonFile: path, selectedItems: ["江苏", "无锡"], onDone: { [unowned self] (indices, items) in
+              self.labelIndices.text = "indices -- \(indices)"
+              self.labelItems.text = "items -- \(items)"
+              }, onCancel: {
+                  self.labelIndices.text = "selected nothing"
+                  self.labelItems.text = "selected nothing"
+          })
+        }
     }
     
   @objc func onClicked_button3() {

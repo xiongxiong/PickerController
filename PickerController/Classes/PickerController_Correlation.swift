@@ -16,7 +16,7 @@ public class PickerController_Correlation: PickerController_Base {
     
     var _pickerControl: PickerControl_Correlation
     
-    public init(title:String, correlationalJsonStr: String, onDone: ClosureDone? = nil, onCancel: ClosureCancel? = nil) {
+    public init(title:String, correlationalJsonStr: String, onDone: ClosureDoneWithTreeNode? = nil, onCancel: ClosureCancel? = nil) {
         _pickerControl = PickerControl_Correlation(jsonStr: correlationalJsonStr)
         super.init(title: title, onCancel: onCancel)
         setDoneAction(onDone)
@@ -34,7 +34,7 @@ public class PickerController_Correlation: PickerController_Base {
         _pickerControl.setSelected(indices: indices)
     }
     
-    public func setDoneAction(_ onDone: ClosureDone?) {
+    public func setDoneAction(_ onDone: ClosureDoneWithTreeNode?) {
         _pickerControl.onDone = { [weak self] (indices, items) in
             self?.animateToClose { (finished) in
                 if finished {

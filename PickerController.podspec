@@ -39,6 +39,5 @@ PickerController, can make correlational pick. love it.
 
   # s.public_header_files = 'PickerController/Classes/**/*.h'
   s.frameworks = 'UIKit'
-  s.dependency 'SwiftyJSON', '~> 4.0'
 end
 

@@ -12,6 +12,7 @@
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		D8180B2D21B6869B009D93E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8180B2C21B6869B009D93E7 /* Assets.xcassets */; };
 		D8180B3021B686DB009D93E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8180B2E21B686DB009D93E7 /* LaunchScreen.storyboard */; };
+		D88C4A2121B7C80200136279 /* chinese_regionalism.json in Resources */ = {isa = PBXBuildFile; fileRef = D88C4A2021B7C80200136279 /* chinese_regionalism.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		C771C0943D63A9D5EFA4D9F6 /* Pods_PickerController_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PickerController_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8180B2C21B6869B009D93E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8180B2F21B686DB009D93E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D88C4A2021B7C80200136279 /* chinese_regionalism.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = chinese_regionalism.json; sourceTree = "<group>"; };
 		E66E8B0CD1694828EE0EDDEC /* Pods-PickerController_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickerController_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PickerController_Example/Pods-PickerController_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		F3333DACA1515B44DA9731B6 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,6 +88,7 @@
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				D8180B2C21B6869B009D93E7 /* Assets.xcassets */,
 				D8180B2E21B686DB009D93E7 /* LaunchScreen.storyboard */,
+				D88C4A2021B7C80200136279 /* chinese_regionalism.json */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
 			name = "Example for PickerController";
@@ -173,6 +176,7 @@
 			files = (
 				D8180B2D21B6869B009D93E7 /* Assets.xcassets in Resources */,
 				D8180B3021B686DB009D93E7 /* LaunchScreen.storyboard in Resources */,
+				D88C4A2121B7C80200136279 /* chinese_regionalism.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,14 +193,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PickerController_Example/Pods-PickerController_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/PickerController/PickerController.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PickerController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

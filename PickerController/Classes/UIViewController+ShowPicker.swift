@@ -18,21 +18,21 @@ extension UIViewController {
 
 extension UIViewController {
    
-    public func showCorrelationPicker(title:String, correlationalJsonStr: String, selectedItems: [String], onDone: ClosureDone? = nil, onCancel: ClosureCancel? = nil) {
+    public func showCorrelationPicker(title:String, correlationalJsonStr: String, selectedItems: [String], onDone: ClosureDoneWithTreeNode? = nil, onCancel: ClosureCancel? = nil) {
         let pickerController = PickerController_Correlation(title: title, correlationalJsonStr: correlationalJsonStr, onDone: onDone, onCancel: onCancel)
         showPicker(pickerController: pickerController) {
             pickerController.setSelected(items: selectedItems)
         }
     }
     
-    public func showCorrelationPicker(title:String, correlationalJsonStr: String, selectedIndices: [Int], onDone: ClosureDone? = nil, onCancel: ClosureCancel? = nil) {
+    public func showCorrelationPicker(title:String, correlationalJsonStr: String, selectedIndices: [Int], onDone: ClosureDoneWithTreeNode? = nil, onCancel: ClosureCancel? = nil) {
         let pickerController = PickerController_Correlation(title: title, correlationalJsonStr: correlationalJsonStr, onDone: onDone, onCancel: onCancel)
         showPicker(pickerController: pickerController) {
             pickerController.setSelected(indices: selectedIndices)
         }
     }
     
-    public func showCorrelationPicker(title:String, correlationalJsonFile: String, selectedItems: [String], onDone: ClosureDone? = nil, onCancel: ClosureCancel? = nil) {
+    public func showCorrelationPicker(title:String, correlationalJsonFile: String, selectedItems: [String], onDone: ClosureDoneWithTreeNode? = nil, onCancel: ClosureCancel? = nil) {
         do {
             let correlationalJsonStr = try String(contentsOfFile: correlationalJsonFile)
             showCorrelationPicker(title: title, correlationalJsonStr: correlationalJsonStr, selectedItems: selectedItems, onDone: onDone, onCancel: onCancel)
@@ -41,7 +41,7 @@ extension UIViewController {
         }
     }
     
-    public func showCorrelationPicker(title:String, correlationalJsonFile: String, selectedIndices: [Int], onDone: ClosureDone? = nil, onCancel: ClosureCancel? = nil) {
+    public func showCorrelationPicker(title:String, correlationalJsonFile: String, selectedIndices: [Int], onDone: ClosureDoneWithTreeNode? = nil, onCancel: ClosureCancel? = nil) {
         do {
             let correlationalJsonStr = try String(contentsOfFile: correlationalJsonFile)
             showCorrelationPicker(title: title, correlationalJsonStr: correlationalJsonStr, selectedIndices: selectedIndices, onDone: onDone, onCancel: onCancel)
@@ -70,14 +70,4 @@ extension UIViewController {
             pickerController.setDate(date: initialDate)
         }
     }
-}
-
-extension UIViewController {
-    
-    public func showPicker_ChineseRegionalism(title: String, selectedItems: [String], onDone: ClosureDone? = nil, onCancel: ClosureCancel? = nil) {
-        if let path = Bundle(for: PickerController_Base.self).path(forResource: "chinese_regionalism", ofType: "json") {
-            showCorrelationPicker(title: title, correlationalJsonFile: path, selectedItems: selectedItems, onDone: onDone, onCancel: onCancel)
-        }
-    }
-    
 }

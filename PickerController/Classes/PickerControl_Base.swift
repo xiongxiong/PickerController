@@ -9,6 +9,7 @@
 import UIKit
 
 public typealias ClosureDone = (_ selectedIndices: [Int], _ selectedStrings: [String]) -> Void
+public typealias ClosureDoneWithTreeNode = (_ selectedIndices: [Int], _ selectedStrings: [TreeNode]) -> Void
 public typealias ClosureCancel = () -> Void
 
 public class PickerControl_Base: UIControl {

@@ -7,13 +7,12 @@
 //
 
 import UIKit
-import SwiftyJSON
 
 public class PickerControl_Correlation: PickerControl_Base {
     
-    var dataSource: TreeNode<String>
+    var dataSource: TreeNode
     var numberOfComponents: Int
-    var onDone: ClosureDone?
+    var onDone: ClosureDoneWithTreeNode?
     
     override var pickerView: UIView {
         return _pickerView
@@ -22,16 +21,11 @@ public class PickerControl_Correlation: PickerControl_Base {
     var _pickerView = UIPickerView()
     
     public convenience init(jsonStr: String) {
-        self.init(data: TreeNode<String>(value: ""))
-//        if let dataFromStr = jsonStr.data(using: .utf8, allowLossyConversion: false) {
-//            dataSource = getTreeNode(json: JSON(data: dataFromStr))
-//            numberOfComponents = dataSource.height - 1
-//        }
-        dataSource = getTreeNode(json: JSON(parseJSON: jsonStr))
-        numberOfComponents = dataSource.height - 1
+        let data = try! JSONDecoder().decode(TreeNode.self, from: jsonStr.data(using: .utf8)!)
+        self.init(data: data)
     }
     
-    public init(data: TreeNode<String>) {
+    public init(data: TreeNode) {
         dataSource = data
         numberOfComponents = dataSource.height - 1
         super.init(frame: CGRect.zero)
@@ -44,15 +38,6 @@ public class PickerControl_Correlation: PickerControl_Base {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func getTreeNode(json: JSON) -> TreeNode<String> {
-        let node = TreeNode<String>(value: json["value"].stringValue)
-        json["nodes"].arrayValue.forEach { (subJson) in
-            let subNode = getTreeNode(json: subJson)
-            node.addChild(subNode)
-        }
-        return node
-    }
-    
     func setSelected(indices: [Int]) {
         indices.enumerated().forEach { (index, value) in
             _pickerView.selectRow(value, inComponent: index, animated: false)
@@ -61,17 +46,17 @@ public class PickerControl_Correlation: PickerControl_Base {
     
     func setSelected(items: [String]) {
         items.enumerated().forEach { (index, item) in
-            var nodes = dataSource.children
+            var nodes = dataSource.nodes
             if index > 0 {
                 for i in 1...index {
                     let selectedIndex = _pickerView.selectedRow(inComponent: i - 1)
-                    nodes = nodes[selectedIndex].children
+                    nodes = nodes?[selectedIndex].nodes
                 }
             }
-            let rows = nodes.map({ (node) -> String in
-                return node.value
+            let rows = nodes?.map({ (node) -> String in
+                return node.value ?? ""
             })
-            if let row = rows.index(of: item) {
+            if let row = rows?.index(of: item) {
                 _pickerView.selectRow(row, inComponent: index, animated: false)
                 if index < numberOfComponents - 1 {
                     _pickerView.reloadComponent(index + 1)
@@ -88,8 +73,14 @@ public class PickerControl_Correlation: PickerControl_Base {
         let indices = (0..<numberOfComponents).map { (index) -> Int in
             return _pickerView.selectedRow(inComponent: index)
         }
-        let items = (0..<numberOfComponents).map { (index) -> String in
-            return pickerView(_pickerView, titleForRow: _pickerView.selectedRow(inComponent: index), forComponent: index) ?? ""
+        let items = (0..<numberOfComponents).map { (index) -> TreeNode in
+            var treeNodes = dataSource.nodes
+            if index > 0 {
+                for i in 0..<index {
+                    treeNodes = treeNodes?[indices[i]].nodes
+                }
+            }
+            return treeNodes![indices[index]]
         }
         onDone?(indices, items)
     }
@@ -98,14 +89,14 @@ public class PickerControl_Correlation: PickerControl_Base {
 extension PickerControl_Correlation: UIPickerViewDelegate {
     
     public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        var treeNodes = dataSource.children
+        var treeNodes = dataSource.nodes
         if component > 0 {
             for i in 1...component {
                 let selectedIndex = pickerView.selectedRow(inComponent: i - 1)
-                treeNodes = treeNodes[selectedIndex].children
+                treeNodes = treeNodes?[selectedIndex].nodes
             }
         }
-        return treeNodes[row].value
+        return treeNodes?[row].displayName ?? treeNodes?[row].value
     }
     
     public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -122,13 +113,13 @@ extension PickerControl_Correlation: UIPickerViewDataSource {
     }
     
     public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        var treeNodes = dataSource.children
+        var treeNodes = dataSource.nodes
         if component > 0 {
             for i in 1...component {
                 let selectedIndex = pickerView.selectedRow(inComponent: i - 1)
-                treeNodes = treeNodes[selectedIndex].children
+                treeNodes = treeNodes?[selectedIndex].nodes
             }
         }
-        return treeNodes.count
+        return treeNodes?.count ?? 0
     }
 }

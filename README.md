@@ -121,17 +121,6 @@ extension UIViewController {
 }
 ```
 
-### Chinese Region Picker
-
-```swift
-extension UIViewController {
-
-    public func showPicker_ChineseRegionalism(title: String, selectedItems: [String], onDone: ClosureDone? = nil, onCancel: ClosureCancel? = nil) {
-        ...
-    }
-}
-```
-
 ### Use PickerController
 
 ```swift
@@ -142,16 +131,6 @@ func onClicked_button1() {
             self.labelItems.text = "items -- \(items)"
             }, onCancel: {
                self.labelIndices.text = "selected nothing"
-                self.labelItems.text = "selected nothing"
-        })
-}
-
-func onClicked_button2() {
-        showPicker_ChineseRegionalism(title: "城市", selectedItems: ["江苏", "无锡"], onDone: { [unowned self] (indices, items) in
-            self.labelIndices.text = "indices -- \(indices)"
-            self.labelItems.text = "items -- \(items)"
-            }, onCancel: {
-                self.labelIndices.text = "selected nothing"
                 self.labelItems.text = "selected nothing"
         })
 }
