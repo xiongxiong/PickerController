@@ -41,6 +41,9 @@ public class PickerControl_Correlation: PickerControl_Base {
     func setSelected(indices: [Int]) {
         indices.enumerated().forEach { (index, value) in
             _pickerView.selectRow(value, inComponent: index, animated: false)
+            if index < numberOfComponents - 1 {
+                _pickerView.reloadComponent(index + 1)
+            }
         }
     }
     
