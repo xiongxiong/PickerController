@@ -28,7 +28,11 @@ public class PickerController_Base: UIViewController {
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
+    public override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
+    }
+
     public override func loadView() {
         super.loadView()
         
