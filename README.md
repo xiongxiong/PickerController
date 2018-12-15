@@ -1,7 +1,7 @@
 # PickerController
 
 [![CI Status](http://img.shields.io/travis/wonderbear/PickerController.svg?style=flat)](https://travis-ci.org/wonderbear/PickerController) [![Version](https://img.shields.io/cocoapods/v/PickerController.svg?style=flat)](http://cocoapods.org/pods/PickerController) [![Platform](https://img.shields.io/cocoapods/p/PickerController.svg?style=flat)](http://cocoapods.org/pods/PickerController)
-[![Swift 3.0](https://img.shields.io/badge/Swift-3.0-orange.svg?style=flat)](https://developer.apple.com/swift/) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![License](https://img.shields.io/cocoapods/l/PickerController.svg?style=flat)](http://cocoapods.org/pods/PickerController)
+[![Swift 4.2](https://img.shields.io/badge/Swift-4.2-orange.svg?style=flat)](https://developer.apple.com/swift/) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![License](https://img.shields.io/cocoapods/l/PickerController.svg?style=flat)](http://cocoapods.org/pods/PickerController)
 
 PickerController, can make correlational pick. I love it.
 
@@ -28,7 +28,7 @@ PickerController, can make correlational pick. I love it.
 
 - iOS 8.0+ / Mac OS X 10.11+ / tvOS 9.0+
 - Xcode 8.0+
-- Swift 3.0+
+- Swift 4.2+
 
 ## Installation
 
@@ -121,17 +121,6 @@ extension UIViewController {
 }
 ```
 
-### Chinese Region Picker
-
-```swift
-extension UIViewController {
-
-    public func showPicker_ChineseRegionalism(title: String, selectedItems: [String], onDone: ClosureDone? = nil, onCancel: ClosureCancel? = nil) {
-        ...
-    }
-}
-```
-
 ### Use PickerController
 
 ```swift
@@ -142,16 +131,6 @@ func onClicked_button1() {
             self.labelItems.text = "items -- \(items)"
             }, onCancel: {
                self.labelIndices.text = "selected nothing"
-                self.labelItems.text = "selected nothing"
-        })
-}
-
-func onClicked_button2() {
-        showPicker_ChineseRegionalism(title: "城市", selectedItems: ["江苏", "无锡"], onDone: { [unowned self] (indices, items) in
-            self.labelIndices.text = "indices -- \(indices)"
-            self.labelItems.text = "items -- \(items)"
-            }, onCancel: {
-                self.labelIndices.text = "selected nothing"
                 self.labelItems.text = "selected nothing"
         })
 }
